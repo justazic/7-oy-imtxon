@@ -36,11 +36,11 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('accounts.urls')),
-    path('api/products/', include('products.urls')),
-    path('api/cart/', include('cart.urls')),
-    path('api/order/', include('orders.urls')),
-    path('api/orders/', include('orders.urls')),
+    path('auth/', include('accounts.urls')),
+    path('products/', include('products.urls')),
+    path('cart/', include('cart.urls')),
+    path('order/', include('orders.urls')),
+    path('orders/', include('orders.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0)),
 ]
