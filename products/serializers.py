@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Product,Category, Comment
 
-class CategorySerializer(serializers.Serializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'name')
@@ -18,11 +18,6 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'title', 'description', 'price', 'category', 'category_id', 'image']
-    
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['category'] = CategorySerializer(instance.category).data
-        return representation
         
         
 class CommentSerializer(serializers.ModelSerializer):
